@@ -21,6 +21,7 @@ const BackgroundSlide = () => {
   }, [images.length]);
 
   return (
+    <>
     <div className="overflow-hidden w-full h-32 relative">
       <div
         className="flex transition-transform duration-700 ease-in-out"
@@ -36,6 +37,7 @@ const BackgroundSlide = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 
