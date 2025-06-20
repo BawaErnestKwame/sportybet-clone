@@ -15,18 +15,21 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
+import { Link } from 'react-router-dom';
 const Me = () => {
   return (
     <>
+
     <div className='pt-6 pb-4 px-4 bg-gray-900 w-full h-auto'>
       <div className=" flex justify-between text-white text-sm">
-      <div className=" flex items-center gap-2">
+     <Link to='/profile'><div className=" flex items-center gap-2">
         <img src={profile_icon} alt="" className=' h-5 w-5 rounded-full  border-0' />
         <span className='flex items-center gap-1'>KWAME BAWA 
         <ArrowForwardIosIcon className="text-sm font-bold text-gray-200" fontSize="inherit" />
 
         </span>
       </div> 
+      </Link> 
 
       {/* settings-icon */}
 
@@ -57,7 +60,6 @@ const Me = () => {
       </div>
     </div>
 
-    
       {/* Sortybet history|Transactions| Gifts */}
       <div className=" bg-gray-50 py-3 px-4 border-b border-gray-300">
         <div className=" flex justify-between px-4">
@@ -81,7 +83,6 @@ const Me = () => {
         </div>
 
       </div>
-
 
       <div className=" text-gray-700">
         <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-300">
@@ -147,8 +148,8 @@ const Me = () => {
         </div>
       </div>
 
-
     </>
+    
   )
 }
 

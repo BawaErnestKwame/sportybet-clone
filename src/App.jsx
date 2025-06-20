@@ -10,6 +10,7 @@ import AzMenu from './Pages/AzMenu';
 import Me from './Pages/Me';
 import OpenBet from './Pages/OpenBet';
 import Games from './Pages/Games';
+import Profile from './Components/Profile';
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/games" element={<Games />} />
           <Route path="/open-bet" element={<OpenBet />} />
           <Route path="/me" element={<Me />} />
+          <Route path="/profile" element={<Profile/>} />
         </Routes>
 
         <BottomNavbar />
