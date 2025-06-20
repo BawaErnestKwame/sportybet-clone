@@ -16,6 +16,7 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import { Link } from 'react-router-dom';
+import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 const Me = () => {
   return (
     <>
@@ -85,44 +86,60 @@ const Me = () => {
       </div>
 
       <div className=" text-gray-700">
-        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-300">
-          <span className=' flex gap-2 items-center text-sm'>
+        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-100">
+          <div className=' flex gap-2 items-center text-sm'>
+           <span className='relative'>
+             <span className='absolute w-2 h-2 rounded-full bg-red-600 top-0 right-0'></span>
             < EmojiEventsIcon/>
-            Sporty Loyalty
+           </span>
+           
+            <span className='flex gap-2'>
+              <p>Sporty Loyalty</p>
+              <button className='text-xs text-gray-50 bg-red-600 flex text-center justify-center px-0.5' >+12 Rewards</button>
+            </span>
+            
+          </div>
+          <span className='flex items-center '>
+            <p>🏆</p>
+            <ArrowForwardIosIcon className='text-sm' fontSize='inherit'/>
           </span>
-          <ArrowForwardIosIcon className='text-sm' fontSize='inherit'/>
         </div>
 
-        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-300">
+
+        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-100">
           <span className=' flex gap-2 items-center text-sm'>
             < SupportAgentIcon/>
-            Sporty Loyalty
+            Customer Service
           </span>
           <span className='flex gap-1 text-sm items-center'>
             Online 24/7
-
              <ArrowForwardIosIcon className='text-sm' fontSize='inherit'/>
           </span>
-         
         </div>
 
-        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-300">
-          <span className=' flex gap-2 items-center text-sm'>
-            < NotificationsNoneIcon/>
-            Sporty Loyalty
-          </span>
+
+        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-100">
+          <div className=' flex gap-2 items-center text-sm '>
+           <div className='relative'>
+           <span className='absolute w-2 h-2 rounded-full bg-red-600 top-0 right-0'></span>
+             < NotificationsNoneIcon/>
+           </div>
+             <p> Notification Center</p>
+          </div>
           <ArrowForwardIosIcon className='text-sm' fontSize='inherit'/>
         </div>
 
-        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-300">
+
+        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-100">
           <span className=' flex gap-2 items-center text-sm'>
             < ThumbUpOffAltIcon/>
-            Sporty Loyalty
+             <p> Rate Our App</p>
           </span>
           <ArrowForwardIosIcon className='text-sm' fontSize='inherit'/>
         </div>
 
-        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-300">
+
+        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-100">
           <span className=' flex gap-2 items-center text-sm'>
             < HelpOutlineIcon/>
             Sporty Loyalty
@@ -131,21 +148,39 @@ const Me = () => {
         </div>
 
 
-        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-300">
+        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-100">
           <span className=' flex gap-2 items-center text-sm'>
             < TipsAndUpdatesIcon />
-            Sporty Loyalty
+            How to play
           </span>
           <ArrowForwardIosIcon className='text-sm' fontSize='inherit'/>
         </div>
 
-        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-300">
+
+        <div className=" flex justify-between px-4 py-2 border-b-[.5px] border-b-gray-100">
           <span className=' flex gap-2 items-center text-sm'>
             < PublishedWithChangesIcon/>
-            Sporty Loyalty
+            Update App
           </span>
-          <ArrowForwardIosIcon className='text-sm' fontSize='inherit'/>
+         <span className='flex items-center tracking-wide '>
+          <p className='text-xs text-gray-50 bg-red-600 rounded-2xl flex text-center justify-center px-1.5'>available</p>
+           <ArrowForwardIosIcon className='text-sm' fontSize='inherit'/>
+         </span>
         </div>
+      </div>
+
+      <div className=" bg-gray-200 w-full mt-2 flex justify-between px-4 items-center py-6">
+        <div className=" text-gray-400 text-sm flex gap-2">
+          <InsertDriveFileIcon/>
+          <h1 className='font-bold'>18+</h1>
+        </div>
+
+        <p className=' text-sm'>
+           ©{ new Date().getFullYear() }. Sporty Clone. All Right Reserved
+
+        </p>
+
+
       </div>
 
     </>
