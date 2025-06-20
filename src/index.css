@@ -13,4 +13,7 @@
   scrollbar-width: none;     
 }
 
-
+.active{
+  color: aliceblue;
+  transition: .5s;
+}

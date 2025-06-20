@@ -1,17 +1,15 @@
-import React from 'react'
-import Navbar from './Components/Navbar'
-import Activities from './Components/Activities'
-import BottomNavbar from './BottomNavbar'
-import BackgroundSlide from './Components/BackgroundSlide'
-import { Routes, Route } from 'react-router-dom'
-import AzMenu from './Pages/AzMenu'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Activities from './Components/Activities';
+import BottomNavbar from './BottomNavbar';
+import BackgroundSlide from './Components/BackgroundSlide';
+
+import Home from './Pages/Home';
+import AzMenu from './Pages/AzMenu';
 import Me from './Pages/Me';
 import OpenBet from './Pages/OpenBet';
 import Games from './Pages/Games';
-import Home from './Pages/Home';
-
-
-
 
 const App = () => {
   return (
@@ -19,28 +17,27 @@ const App = () => {
       <div className="max-w-[375px] w-full min-h-screen bg-white shadow-xl overflow-hidden">
 
         <Routes>
-
           <Route
-          path='/' element={
-            <>
-                <Navbar/>
-                <BackgroundSlide/>
-                <Activities/>
-            </>     
-          }
+            path="/"
+            element={
+              <>
+                <Navbar />
+                <BackgroundSlide />
+                <Activities />
+                <Home />
+              </>
+            }
           />
+          <Route path="/azmenu" element={<AzMenu />} />
+          <Route path="/games" element={<Games />} />
+          <Route path="/open-bet" element={<OpenBet />} />
+          <Route path="/me" element={<Me />} />
+        </Routes>
 
-          <Route path='/'element={<Home/>} />
-          <Route path='/AzMenu'element={<AzMenu/>} />
-          <Route path='/Games'element={<Games/>} />
-          <Route path='/OpenBet'element={<OpenBet/>} />
-          <Route path='/Me' element={<Me/>} />
-          <Route path='/AzMenu' element={<AzMenu/>} />
-          </Routes>
-           <BottomNavbar/>
+        <BottomNavbar />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
