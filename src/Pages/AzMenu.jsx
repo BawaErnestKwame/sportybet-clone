@@ -58,7 +58,7 @@ const AzMenu = () => {
         <span
           onClick={() => setActiveTab('sports')}
           className={`cursor-pointer tracking-wide ${
-            activeTab === 'sports' ? 'text-green-600 underline decoration-2 underline-offset-16 ' : ''
+            activeTab === 'sports' ? 'text-green-600 underline decoration-3 underline-offset-16 ' : ''
           }`}
         >
           Sports
@@ -67,7 +67,7 @@ const AzMenu = () => {
         <span
           onClick={() => setActiveTab('live')}
           className={`cursor-pointer tracking-wide ${
-            activeTab === 'live' ? 'text-green-600 underline decoration-2 underline-offset-16 ' : ''
+            activeTab === 'live' ? 'text-green-600 underline decoration-3  underline-offset-16 ' : ''
           }`}
         >
           Live (122)
@@ -76,7 +76,7 @@ const AzMenu = () => {
         <span
           onClick={() => setActiveTab('promotion')}
           className={`cursor-pointer tracking-wide ${
-            activeTab === 'promotion' ? 'text-green-600 underline decoration-2 underline-offset-16 ' : ''
+            activeTab === 'promotion' ? 'text-green-600 underline decoration-3 underline-offset-16 ' : ''
           }`}
         >
           Promotion (14)

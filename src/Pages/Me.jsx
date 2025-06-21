@@ -56,7 +56,10 @@ const Me = () => {
       {/* deposit| withdrawal */}
 
       <div className=" flex justify-between text-white gap-3 mt-6">
-        <button className='bg-green-600 py-1.5 w-full flex gap-2 rounded  justify-center text-sm'> <PaymentIcon/> Deposit</button>
+        <Link to='/Deposit' className='w-full'>
+        <button className='bg-green-600 py-1.5 w-full flex gap-2 rounded  justify-center text-sm'>
+           <PaymentIcon/> Deposit</button>
+        </Link>
         <button className='bg-green-600 py-1.5 w-full flex gap-2 rounded justify-center text-sm'><CardTravelIcon/> Withdraw </button>
       </div>
     </div>
