@@ -1,10 +1,11 @@
 import React from 'react'
 
+
 const HowToDeposit = () => {
   return (
-    <div>
-        
-    </div>
+  <div className="">
+
+  </div>
   )
 }
 
