@@ -60,7 +60,10 @@ const Me = () => {
         <button className='bg-green-600 py-1.5 w-full flex gap-2 rounded  justify-center text-sm'>
            <PaymentIcon/> Deposit</button>
         </Link>
+        <Link to='/Withdraw' className='w-full'>
         <button className='bg-green-600 py-1.5 w-full flex gap-2 rounded justify-center text-sm'><CardTravelIcon/> Withdraw </button>
+        
+        </Link>
       </div>
     </div>
 

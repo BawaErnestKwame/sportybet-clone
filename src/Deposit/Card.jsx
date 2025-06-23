@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import LockIcon from '@mui/icons-material/Lock';
@@ -7,7 +7,13 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import visa from '../assets/visa.jpeg'
 import mastercard from '../assets/mastercard.png'
 
+
 const Card = () => {
+  const [amount, setAmount]= useState(0)
+
+  const handleAmount= (value)=>{
+    setAmount(prev =>(parseFloat(prev) + value).toFixed(2))
+  }
   return (
     <>
       <form className="space-y-4 px-4 pt-4">
@@ -74,11 +80,12 @@ const Card = () => {
 
           <div className=" flex justify-between border border-gray-300 hover:border-green-600 transition-colors mb-2 rounded-xs py-3 px-3 text-xs text-gray-600    items-center">
             <span className='flex gap-2 items-center text-sm '>
-              <h1>Amount</h1>
+              <h1>Amount</h1>/
               <span>(GHS)</span>
             </span>
 
             <input type="text"
+            value={amount}
              placeholder='min. 1.00'
                className='outline-none text-xs text-right'/>
       </div>
@@ -86,11 +93,11 @@ const Card = () => {
       {/* amount-bottons */}
 
       <div className="flex gap-2 text-sm mb-3">
-        <button className='border border-gray-600 py-1 px-5'>+2</button>
-        <button className='border border-gray-600 py-1 px-4.5'>+5</button>
-        <button className='border border-gray-600 py-1 px-4.5'>+10</button>
-        <button className='border border-gray-600 py-1 px-4.5'>+50</button>
-        <button className='border border-gray-600 py-1 px-4.5'>+100</button>
+        <button onClick={()=>handleAmount(2)} className='border border-gray-600 py-1 px-5 transition-colors hover:border-green-700'>+2</button>
+        <button onClick={()=>handleAmount(5)} className='border border-gray-600 py-1 px-4.5 transition-colors hover:border-green-700'>+5</button>
+        <button onClick={()=>handleAmount(10)} className='border border-gray-600 py-1 px-4.5 transition-colors hover:border-green-700'>+10</button>
+        <button onClick={()=>handleAmount(50)} className='border border-gray-600 py-1 px-4.5 transition-colors hover:border-green-700'>+50</button>
+        <button onClick={()=>handleAmount(100)} className='border border-gray-600 py-1 px-4.5 transition-colors hover:border-green-700'>+100</button>
       </div>
 
       {/* Top Up Now botton */}
