@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Activities from './Components/Activities';
 import BottomNavbar from './BottomNavbar';
@@ -24,7 +24,7 @@ const App = () => {
     location.pathname.toLowerCase().startsWith('/deposit') ||
     location.pathname.toLowerCase() === '/howtodeposit';
 
-  return (
+   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-600">
       <div className="max-w-[375px] w-full min-h-screen bg-white shadow-xl overflow-hidden">
         <Routes>
@@ -48,6 +48,7 @@ const App = () => {
 
           {/* Nested Deposit Routes */}
           <Route path="/deposit" element={<Deposit />}>
+          <Route index element={<Navigate to="mobile-money" replace />} />
             <Route path="mobile-money" index element={<MobileMoney />} />
             <Route path="paybill" element={<Paybill />} />
             <Route path="card" element={<Card />} />
