@@ -31,7 +31,7 @@ const dropdownItems = [
   { label: 'Card Games', icon: <StyleIcon fontSize="small" />, value: 'cardgames' },
 ];
 
-const Games = () => {
+const GamePlay = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(dropdownItems[0]);
   const [full, setFull] = useState(false);
@@ -133,4 +133,4 @@ const Games = () => {
   );
 };
 
-export default Games;
+export default GamePlay;
