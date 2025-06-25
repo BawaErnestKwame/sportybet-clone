@@ -29,7 +29,7 @@ const App = () => {
     location.pathname.toLowerCase() === '/howtodeposit';
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-600">
+    <div className="flex justify-center items-center h-full bg-gray-600">
       <div className="max-w-[768px] w-full h-full bg-white shadow-xl overflow-hidden">
         <Navbar />
         <BackgroundSlide />
