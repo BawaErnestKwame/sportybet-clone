@@ -30,7 +30,7 @@ const App = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-600">
-      <div className="max-w-[375px] w-full min-h-screen bg-white shadow-xl overflow-hidden">
+      <div className="max-w-[768px] w-full h-full bg-white shadow-xl overflow-hidden">
         <Navbar />
         <BackgroundSlide />
 
