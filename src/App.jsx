@@ -38,7 +38,7 @@ const App = () => {
           {/* Tab Layout: Activities is parent */}
           <Route path="/" element={<Activities />}>
             <Route index element={<Home />} /> {/* Default tab content */}
-            <Route path="matches" element={<Matches/>} />
+            <Route index element={<Matches to="Matches" replace/>} />
             <Route path="games" element={<Game/>} />
             <Route path="codes" element={<Codes/>} />
             <Route path="virtuals" element={<Virtual/>} />

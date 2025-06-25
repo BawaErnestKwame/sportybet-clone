@@ -1,7 +1,7 @@
 import React from 'react';
 import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom'; // ✅ Import Outlet
 
 const Matches = () => {
   const leagues = [
@@ -83,7 +83,7 @@ const Matches = () => {
         {matches.map((match, index) => (
           <div
             key={index}
-            className="min-w-[270px] bg-white p-3 rounded-xl shadow-sm space-y-3 flex-shrink-0"
+            className="bg-white p-3 rounded-xl shadow-sm space-y-3 flex-shrink-0"
           >
             {/* Header */}
             <div className="text-sm font-semibold">
@@ -93,16 +93,16 @@ const Matches = () => {
             </div>
 
             {/* Teams and Time */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-2">
               {/* Home Team */}
-              <div className="flex flex-col items-center text-sm text-gray-800 w-1/3">
+              <div className="flex flex-col items-center text-sm text-gray-800 flex-1 basis-0">
                 <span className="text-xs bg-gray-200 px-2 py-1 rounded-full mb-1">🏀</span>
                 <span className="text-center">{match.home}</span>
               </div>
 
               {/* Match Info */}
-              <div className="flex flex-col items-center text-xs text-gray-700 w-1/3">
-                <div className="flex items-center gap-1 text-xs">
+              <div className="flex flex-col items-center text-xs text-gray-700 flex-1 basis-0">
+                <div className="flex items-center gap-2">
                   <span className="font-bold text-gray-900">{match.time}</span>
                   <span className="w-0.5 h-4 bg-gray-400"></span>
                   <span>{match.day}</span>
@@ -114,19 +114,19 @@ const Matches = () => {
               </div>
 
               {/* Away Team */}
-              <div className="flex flex-col items-center text-sm text-gray-800 w-1/3">
+              <div className="flex flex-col items-center text-sm text-gray-800 flex-1 basis-0">
                 <span className="text-xs bg-gray-200 px-2 py-1 rounded-full mb-1">🏀</span>
                 <span className="text-center">{match.away}</span>
               </div>
             </div>
 
             {/* Betting Odds */}
-            <div className="flex w-full gap-2 text-sm font-medium">
-              <button className="bg-green-100 px-1 w-full py-2 rounded-lg flex justify-between items-center text-green-700 hover:bg-green-200">
+            <div className="flex gap-2 text-sm font-medium">
+              <button className="bg-green-100 px-3 py-2 rounded-lg flex items-center justify-between gap-2 text-green-700 hover:bg-green-200 flex-1">
                 <span>1</span>
                 <span>{match.odds.home}</span>
               </button>
-              <button className="bg-green-100 px-1 w-full py-2 rounded-lg flex justify-between items-center text-green-700 hover:bg-green-200">
+              <button className="bg-green-100 px-3 py-2 rounded-lg flex items-center justify-between gap-2 text-green-700 hover:bg-green-200 flex-1">
                 <span>2</span>
                 <span>{match.odds.away}</span>
               </button>
@@ -134,6 +134,9 @@ const Matches = () => {
           </div>
         ))}
       </div>
+
+      {/* ✅ Outlet for nested routes */}
+      <Outlet />
     </div>
   );
 };

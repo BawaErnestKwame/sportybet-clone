@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import LiveTvIcon from '@mui/icons-material/LiveTv';
 import Groups2SharpIcon from '@mui/icons-material/Groups2Sharp';
 import AcUnitSharpIcon from '@mui/icons-material/AcUnitSharp';
@@ -8,6 +8,10 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import SportsVolleyballIcon from '@mui/icons-material/SportsVolleyball';
 
 const Activities = () => {
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname.endsWith(path);
+
   return (
     <>
       <div className="px-4">
@@ -41,7 +45,6 @@ const Activities = () => {
 
         {/* Horizontal scroll section */}
         <div className="flex overflow-x-auto gap-2 px-2 py-2 snap-x snap-mandatory scroll-hide">
-          {/* Your cards */}
           {[
             { title: "TODAY'S \nFOOTBALL", border: 'border-red-600' },
             { title: 'FOOTBALL IN\nNEXT 3\nHOURS', border: 'border-violet-800' },
@@ -52,7 +55,10 @@ const Activities = () => {
             { title: 'NHL', border: 'border-violet-950' },
             { title: 'FIVB NATIONS \nLEAGUE', border: 'border-red-600' },
           ].map((item, idx) => (
-            <div key={idx} className={`bg-white min-w-[120px] px-3 py-1 ${item.border} border-t-2 rounded shadow-md flex-shrink-0 snap-start`}>
+            <div
+              key={idx}
+              className={`bg-white min-w-[120px] px-3 py-1 ${item.border} border-t-2 rounded shadow-md flex-shrink-0 snap-start`}
+            >
               <h1 className="text-sm font-normal leading-4 whitespace-pre-line">{item.title}</h1>
             </div>
           ))}
@@ -65,19 +71,49 @@ const Activities = () => {
 
         <div className="flex-1 overflow-x-auto scroll-hide">
           <ul className="flex gap-4 snap-x snap-mandatory whitespace-nowrap">
-            <li className="snap-start"><Link to="matches">Matches</Link></li>
-            <li className="snap-start"><Link to="games">Games</Link></li>
-            <li className="snap-start"><Link to="codes">Codes</Link></li>
-            <li className="snap-start"><Link to="virtuals">Virtuals</Link></li>
+            <li className="snap-start">
+              <Link
+                to="matches"
+                className={isActive('matches') ? 'text-green-700 font-semibold' : ''}
+              >
+                Matches
+              </Link>
+            </li>
+            <li className="snap-start">
+              <Link
+                to="games"
+                className={isActive('games') ? 'text-green-700 font-semibold' : ''}
+              >
+                Games
+              </Link>
+            </li>
+            <li className="snap-start">
+              <Link
+                to="codes"
+                className={isActive('codes') ? 'text-green-700 font-semibold' : ''}
+              >
+                Codes
+              </Link>
+            </li>
+            <li className="snap-start">
+              <Link
+                to="virtuals"
+                className={isActive('virtuals') ? 'text-green-700 font-semibold' : ''}
+              >
+                Virtuals
+              </Link>
+            </li>
           </ul>
         </div>
 
         <div className="text-green-700 ml-2">
-          <Link to="matches"><LiveTvIcon /></Link>
+          <Link to="matches">
+            <LiveTvIcon />
+          </Link>
         </div>
       </div>
 
-      {/* Tab content appears here */}
+      {/* Tab content */}
       <div className="p-4">
         <Outlet />
       </div>
