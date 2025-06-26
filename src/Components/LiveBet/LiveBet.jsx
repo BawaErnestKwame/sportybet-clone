@@ -21,7 +21,7 @@ const LiveBet = () => {
   return(
 
     <>
-    <div className="w-full min-h-screen bg-gray-900">
+    <div className="w-full h-full bg-gray-900">
       {/* Top Header */}
       <div className=" flex">
       <div className="sticky top-0 z-20  px-4 py-3 shadow-sm">
