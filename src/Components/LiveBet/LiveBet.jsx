@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Sports from "../../Components/LiveBet/Sports"; 
+
 
 const sports = [
   'Football', 'Basketball', 'Tennis', 'Table Tennis', 'Volleyball',
@@ -15,8 +17,9 @@ const betTypes = [
 const LiveBet = () => {
   const [activeSport, setActiveSport] = useState('Football');
   const [activeBet, setActiveBet] = useState('1X2');
+  return(
 
-  return (
+    <>
     <div className="w-full min-h-screen bg-gray-900">
       {/* Top Header */}
       <div className=" flex">
@@ -77,7 +80,11 @@ const LiveBet = () => {
         <p className="font-semibold text-lg">{activeSport} - {activeBet}</p>
         <p className="mt-4 text-sm text-gray-400">Live matches and odds will appear here.</p>
       </div>
+
     </div>
+    <Sports/>
+
+    </>
   );
 };
 

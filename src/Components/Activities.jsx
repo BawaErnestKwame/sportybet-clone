@@ -58,7 +58,6 @@ const Activities = () => {
         <Outlet />
       </div>
 
-      {/* ✅ Show LiveBet ONLY when at root of Activities */}
        <LiveBet />
     </>
   );
