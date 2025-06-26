@@ -10,56 +10,79 @@ import LiveBet from '../Components/LiveBet/LiveBet';
 
 const Activities = () => {
   const location = useLocation();
-
   const isActive = (path) => location.pathname.endsWith(path);
-  const isAtRoot = location.pathname === '/';
 
   return (
-    <>
-      {/* Icon Tabs */}
-      <div className="w-full flex gap-4 text-sm py-4">
-        <div className="flex flex-col items-center text-xs"><AcUnitSharpIcon /><h1>All Sports</h1></div>
-        <div className="flex flex-col items-center text-xs"><LiveTvIcon /><h1>Live</h1></div>
-        <div className="flex flex-col items-center text-xs"><Groups2SharpIcon /><h1>Sporty Hero</h1></div>
-        <div className="flex flex-col items-center text-xs"><FlightTakeoffIcon /><h1>Aviator</h1></div>
-        <div className="flex flex-col items-center text-xs"><SportsVolleyballIcon /><h1>Virtual</h1></div>
-        <div className="flex flex-col items-center text-xs"><MoreHorizIcon /><h1>More</h1></div>
+    <div className="w-full min-h-screen bg-gray-50">
+      {/* Top Icon Tabs */}
+      <div className="flex justify-between gap-6 px-8 whitespace-nowrap py-4 overflow-x-auto bg-white border-b border-gray-200 scroll-hide">
+        {[
+          { icon: <AcUnitSharpIcon />, label: 'All Sports' },
+          { icon: <LiveTvIcon />, label: 'Live' },
+          { icon: <Groups2SharpIcon />, label: 'Sporty Hero' },
+          { icon: <FlightTakeoffIcon />, label: 'Aviator' },
+          { icon: <SportsVolleyballIcon />, label: 'Virtual' },
+          { icon: <MoreHorizIcon />, label: 'More' },
+        ].map(({ icon, label }, idx) => (
+          <div key={idx} className="flex flex-col items-center text-xs text-gray-700">
+            {icon}
+            <span className="mt-1">{label}</span>
+          </div>
+        ))}
       </div>
 
-      {/* Scroll Menu */}
-      <div className="flex overflow-x-auto gap-2 px-2 py-2 snap-x snap-mandatory scroll-hide">
-        {/* Your scroll menu logic */}
+      {/* Scrollable Competitions */}
+      <div className="flex overflow-x-auto gap-3 px-4 py-3 scroll-hide bg-gray-50">
+        {[
+          "TODAY'S\nFOOTBALL",
+          "FOOTBALL IN\nNEXT 3\nHOURS",
+          "FIFA CLUB\nWORLD CUP",
+          "CONCACAF\nGOLD CUP",
+          "U21 EUROS",
+          "ATP/WTA",
+          "FIVB NATIONS\nLEAGUE"
+        ].map((text, idx) => (
+          <div
+            key={idx}
+            className="min-w-[130px] bg-white shadow-md border-t-2 border-red-600 rounded-md py-2 px-3 text-xs font-medium text-gray-700 leading-tight whitespace-pre-line hover:shadow-lg transition duration-200"
+          >
+            {text}
+          </div>
+        ))}
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex text-sm text-gray-800 items-center px-4 justify-between w-full bg-white py-2 border-b border-gray-300 overflow-hidden">
-        <h1 className="font-bold whitespace-nowrap mr-2">Featured</h1>
-        <div className="flex-1 overflow-x-auto scroll-hide">
-          <ul className="flex gap-4 snap-x snap-mandatory whitespace-nowrap">
-            <li className="snap-start">
-              <Link to="matches" className={isActive('matches') ? 'text-green-700 font-semibold' : ''}>Matches</Link>
-            </li>
-            <li className="snap-start">
-              <Link to="game" className={isActive('game') ? 'text-green-700 font-semibold' : ''}>Games</Link>
-            </li>
-            <li className="snap-start">
-              <Link to="codes" className={isActive('codes') ? 'text-green-700 font-semibold' : ''}>Codes</Link>
-            </li>
-            <li className="snap-start">
-              <Link to="virtuals" className={isActive('virtuals') ? 'text-green-700 font-semibold' : ''}>Virtuals</Link>
-            </li>
+      <div className="flex items-center justify-between px-4 py-2 bg-white border-y border-gray-200">
+        <h1 className="font-bold text-sm text-gray-800 whitespace-nowrap">Featured</h1>
+        <div className="flex-1 overflow-x-auto ml-4 scroll-hide">
+          <ul className="flex gap-5 text-sm whitespace-nowrap">
+            {['matches', 'game', 'codes', 'virtuals'].map((tab) => (
+              <li key={tab}>
+                <Link
+                  to={tab}
+                  className={`${
+                    isActive(tab) ? 'text-green-700 font-semibold' : 'text-gray-600'
+                  } hover:text-green-600`}
+                >
+                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
-        <div className="text-green-700 ml-2"><LiveTvIcon /></div>
+        <div className="text-green-700 ml-2">
+          <LiveTvIcon fontSize="small" />
+        </div>
       </div>
 
-      {/* Tab Content */}
-      <div className="p-4">
+      {/* Tab Content Area */}
+      <div className="">
         <Outlet />
       </div>
 
-       <LiveBet />
-    </>
+      {/* LiveBet Component */}
+      <LiveBet />
+    </div>
   );
 };
 

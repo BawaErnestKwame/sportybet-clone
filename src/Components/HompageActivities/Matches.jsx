@@ -64,7 +64,7 @@ const Matches = () => {
   ];
 
   return (
-    <div className="space-y-4 p-4 bg-gray-50">
+    <div className="space-y-4  bg-gray-50">
       {/* Scrollable League Buttons */}
       <div className="flex overflow-x-auto gap-3 scroll-hide pb-2">
         {leagues.map((league, index) => (
@@ -83,7 +83,7 @@ const Matches = () => {
         {matches.map((match, index) => (
           <div
             key={index}
-            className="bg-white p-3 rounded-xl shadow-sm space-y-3 flex-shrink-0"
+            className="bg-white p-2 rounded-xl shadow-sm space-y-3 flex-shrink-0"
           >
             {/* Header */}
             <div className="text-sm font-semibold">
@@ -102,14 +102,14 @@ const Matches = () => {
 
               {/* Match Info */}
               <div className="flex flex-col items-center text-xs text-gray-700 flex-1 basis-0">
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-gray-900">{match.time}</span>
+                <div className="flex items-center gap-2 whitespace-nowrap">
+                  <span className="font-bold text-gray-900 whitespace-nowrap">{match.time}</span>
                   <span className="w-0.5 h-4 bg-gray-400"></span>
                   <span>{match.day}</span>
                 </div>
                 <div className="flex items-center gap-1 mt-1">
                   <span className="text-green-700 font-medium">Winner</span>
-                  <span className="w-4 h-4 bg-gray-500 text-white text-xs rounded-full flex items-center justify-center">!</span>
+                  <span className="w-3 h-3 bg-gray-500 text-white text-xs rounded-full flex items-center justify-center">!</span>
                 </div>
               </div>
 
