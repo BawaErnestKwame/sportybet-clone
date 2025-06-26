@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Sports from "../../Components/LiveBet/Sports"; 
+import { Link } from 'react-router-dom'; 
+import Sports from '../../Components/LiveBet/Sports'
+
 
 
 const sports = [
@@ -82,7 +83,9 @@ const LiveBet = () => {
       </div>
 
     </div>
+
     <Sports/>
+   
 
     </>
   );
