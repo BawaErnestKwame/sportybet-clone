@@ -81,8 +81,8 @@ const Activities = () => {
             </li>
             <li className="snap-start">
               <Link
-                to="games"
-                className={isActive('games') ? 'text-green-700 font-semibold' : ''}
+                to="game"
+                className={isActive('game') ? 'text-green-700 font-semibold' : ''}
               >
                 Games
               </Link>

@@ -24,7 +24,7 @@ const BottomNavbar = () => {
           </li>
         </NavLink>
 
-        <NavLink to="/games" className="flex flex-col items-center text-xs text-gray-400 hover:text-white">
+        <NavLink to="/gamePlay" className="flex flex-col items-center text-xs text-gray-400 hover:text-white">
           <li className="flex flex-col items-center">
             <SportsEsportsIcon />
             Games
