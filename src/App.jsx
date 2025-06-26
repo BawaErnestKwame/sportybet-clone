@@ -7,6 +7,7 @@ import Navbar from './Components/Navbar';
 import BottomNavbar from './BottomNavbar';
 import BackgroundSlide from './Components/BackgroundSlide';
 import Activities from './Components/Activities';
+import LiveBet from './Components/LiveBet/LiveBet';
 
 // Pages
 import Home from './Pages/Home';
@@ -53,17 +54,13 @@ const App = () => {
   return (
     <div className="flex justify-center items-center h-auto bg-gray-600">
       <div className="max-w-[768px] w-full h-auto bg-white shadow-xl overflow-hidden">
+
         {showHeader && <Navbar />}
         {showHeader && <BackgroundSlide />}
 
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
-            {/* Activities Layout */}
-            <Route path="/" element={
-              <motion.div {...pageTransition}>
-                <Activities />
-              </motion.div>
-            }>
+            <Route path="/" element={<Activities />}>
               <Route index element={<Navigate to="matches" replace />} />
               <Route path="matches" element={<motion.div {...pageTransition}><Matches /></motion.div>} />
               <Route path="games" element={<motion.div {...pageTransition}><Game /></motion.div>} />
@@ -71,7 +68,6 @@ const App = () => {
               <Route path="virtuals" element={<motion.div {...pageTransition}><Virtual /></motion.div>} />
             </Route>
 
-            {/* Standalone Pages */}
             <Route path="/gameplay" element={<motion.div {...pageTransition}><GamePlay /></motion.div>} />
             <Route path="/azmenu" element={<motion.div {...pageTransition}><AzMenu /></motion.div>} />
             <Route path="/open-bet" element={<motion.div {...pageTransition}><OpenBet /></motion.div>} />
@@ -79,7 +75,6 @@ const App = () => {
             <Route path="/profile" element={<motion.div {...pageTransition}><Profile /></motion.div>} />
             <Route path="/howtodeposit" element={<motion.div {...pageTransition}><HowToDeposit /></motion.div>} />
 
-            {/* Deposit with Nested Routes */}
             <Route path="/deposit" element={<motion.div {...pageTransition}><Deposit /></motion.div>}>
               <Route index element={<Navigate to="mobile-money" replace />} />
               <Route path="mobile-money" element={<motion.div {...pageTransition}><MobileMoney /></motion.div>} />
