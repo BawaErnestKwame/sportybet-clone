@@ -28,6 +28,10 @@ import Matches from './Components/HompageActivities/Matches';
 import Virtual from './Components/HompageActivities/Virtual';
 import Codes from './Components/HompageActivities/Codes';
 import Game from './Components/HompageActivities/Game';
+import Withdraw from './Withdraw/Withdraw';
+import WithdrawMobileMoney from './Withdraw/WithdrawMobileMoney';
+import Bank from './Withdraw/Bank';
+import HowtoWithdraw from './Withdraw/HowtoWithdraw';
 
 const App = () => {
   const location = useLocation();
@@ -45,7 +49,9 @@ const App = () => {
 
   // Hide bottom nav on deposit or help-related pages
   const hideBottomNav =
-    path.startsWith('/deposit') || path === '/howtodeposit';
+      path.startsWith('/deposit') ||
+  path.startsWith('/withdraw') ||
+  path === '/howtodeposit';
 
   // Page animation config
   const pageTransition = {
@@ -57,7 +63,7 @@ const App = () => {
 
   return (
     <div className="flex justify-center items-center h-auto bg-gray-600">
-      <div className="max-w-[768px] w-full h-auto bg-white shadow-xl overflow-hidden">
+      <div className="max-w-[768px] w-full h-auto bg-white overflow-hidden">
 
         {/* Header shown only when applicable */}
         {showHeader && <Navbar />}
@@ -86,6 +92,13 @@ const App = () => {
               <Route path="mobile-money" element={<motion.div {...pageTransition}><MobileMoney /></motion.div>} />
               <Route path="paybill" element={<motion.div {...pageTransition}><Paybill /></motion.div>} />
               <Route path="card" element={<motion.div {...pageTransition}><Card /></motion.div>} />
+            </Route>
+
+            <Route path='/withdraw' element={<Withdraw/>}>
+              <Route index element={<Navigate to='withdrawmobilemoney' replace/> }/>
+              <Route path='withdrawmobilemoney' element={<WithdrawMobileMoney/>}/>
+              <Route path='bank' element={<Bank/>}/>
+              <Route path='howtowithdraw' element={<HowtoWithdraw/>}/>
             </Route>
           </Routes>
         </AnimatePresence>
