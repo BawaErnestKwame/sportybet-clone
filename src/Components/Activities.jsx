@@ -12,6 +12,17 @@ const Activities = () => {
   const location = useLocation();
   const isActive = (path) => location.pathname.endsWith(path);
 
+  // Scrollable boxes with dynamic colors
+  const competitions = [
+    { label: "TODAY'S\nFOOTBALL", color: 'border-red-700' },
+    { label: "FOOTBALL IN\nNEXT 3\nHOURS", color: 'border-purple-800' },
+    { label: "FIFA CLUB\nWORLD CUP", color: 'border-green-700' },
+    { label: "CONCACAF\nGOLD CUP", color: 'border-black-500' },
+    { label: "U21 EUROS", color: 'border-red-600' },
+    { label: "ATP/WTA", color: 'border-purple-700' },
+    { label: "FIVB NATIONS\nLEAGUE", color: 'border-green-700' },
+  ];
+
   return (
     <div className="w-full min-h-screen bg-gray-50">
       {/* Top Icon Tabs */}
@@ -31,22 +42,14 @@ const Activities = () => {
         ))}
       </div>
 
-      {/* Scrollable Competitions */}
+      {/* Scrollable Competitions with Colored Borders */}
       <div className="flex overflow-x-auto gap-3 px-4 py-3 scroll-hide bg-gray-50">
-        {[
-          "TODAY'S\nFOOTBALL",
-          "FOOTBALL IN\nNEXT 3\nHOURS",
-          "FIFA CLUB\nWORLD CUP",
-          "CONCACAF\nGOLD CUP",
-          "U21 EUROS",
-          "ATP/WTA",
-          "FIVB NATIONS\nLEAGUE"
-        ].map((text, idx) => (
+        {competitions.map(({ label, color }, idx) => (
           <div
             key={idx}
-            className="min-w-[130px] bg-white shadow-md border-t-2 border-red-600 rounded-md py-2 px-3 text-xs font-medium text-gray-700 leading-tight whitespace-pre-line hover:shadow-lg transition duration-200"
+            className={`min-w-[130px] bg-white shadow-md border-t-3 ${color} rounded-md py-2 px-3 text-xs font-medium text-gray-700 leading-tight whitespace-pre-line hover:shadow-lg transition duration-200`}
           >
-            {text}
+            {label}
           </div>
         ))}
       </div>

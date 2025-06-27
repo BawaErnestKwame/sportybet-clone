@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import profile from '../assets/image.jpg'
+import { Link} from 'react-router-dom'; 
 
 const Navbar = () => {
   return (
@@ -13,7 +14,10 @@ const Navbar = () => {
         <SearchIcon className="text-white font-bold" />
         <div className="flex items-center gap-x-2 rounded px-2 py-1">
           {/* profile */}
-          <button className='border-none bg-white text-red-600 text-sm rounded px-2 py-1 font-normal'>Deposit</button>
+          <Link to='/Deposit'>
+             <button className='border-none bg-white text-red-600 text-sm rounded px-2 py-1 font-normal'>Deposit</button>
+          </Link>
+       
           <button className=' flex items-center gap-1 border-2 border-gray-100 rounded px-1 py-0.5'><img src={profile} alt="profile" className='w-5 h-5 rounded-full border-2 border-gray-100' /> 
           <span className='text-sm text-white font-medium'>GHS 0.00</span>
           </button>

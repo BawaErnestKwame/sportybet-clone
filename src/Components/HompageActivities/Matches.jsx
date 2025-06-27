@@ -66,7 +66,7 @@ const Matches = () => {
   return (
     <div className="space-y-4  bg-gray-50">
       {/* Scrollable League Buttons */}
-      <div className="flex overflow-x-auto gap-3 scroll-hide pb-2">
+      <div className="flex overflow-x-auto gap-3 scroll-hide pb-2 mt-3">
         {leagues.map((league, index) => (
           <button
             key={index}

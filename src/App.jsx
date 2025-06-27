@@ -69,7 +69,7 @@ const App = () => {
             <Route path="/" element={<Activities />}>
               <Route index element={<Navigate to="matches" replace />} />
               <Route path="matches" element={<motion.div {...pageTransition}><Matches /></motion.div>} />
-              <Route path="games" element={<motion.div {...pageTransition}><Game /></motion.div>} />
+              <Route path="game" element={<motion.div {...pageTransition}><Game /></motion.div>} />
               <Route path="codes" element={<motion.div {...pageTransition}><Codes /></motion.div>} />
               <Route path="virtuals" element={<motion.div {...pageTransition}><Virtual /></motion.div>} />
             </Route>
