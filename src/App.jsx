@@ -10,7 +10,6 @@ import Activities from './Components/Activities';
 import LiveBet from './Components/LiveBet/LiveBet';
 
 // Pages
-import Home from './Pages/Home';
 import AzMenu from './Pages/AzMenu';
 import Me from './Pages/Me';
 import OpenBet from './Pages/OpenBet';
@@ -34,16 +33,21 @@ const App = () => {
   const location = useLocation();
   const path = location.pathname.toLowerCase();
 
+  // Only show Navbar and BackgroundSlide on these routes
   const showHeader =
-    path === '/' ||
-    path.startsWith('/matches') ||
-    path.startsWith('/game') ||
-    path.startsWith('/codes') ||
-    path.startsWith('/virtuals');
+    path !== '/gameplay' && (
+      path === '/' ||
+      path.startsWith('/matches') ||
+      path.startsWith('/game') ||
+      path.startsWith('/codes') ||
+      path.startsWith('/virtuals')
+    );
 
+  // Hide bottom nav on deposit or help-related pages
   const hideBottomNav =
     path.startsWith('/deposit') || path === '/howtodeposit';
 
+  // Page animation config
   const pageTransition = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -55,9 +59,11 @@ const App = () => {
     <div className="flex justify-center items-center h-auto bg-gray-600">
       <div className="max-w-[768px] w-full h-auto bg-white shadow-xl overflow-hidden">
 
+        {/* Header shown only when applicable */}
         {showHeader && <Navbar />}
         {showHeader && <BackgroundSlide />}
 
+        {/* Page Routes */}
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Activities />}>
@@ -84,6 +90,7 @@ const App = () => {
           </Routes>
         </AnimatePresence>
 
+        {/* Bottom navbar */}
         {!hideBottomNav && <BottomNavbar />}
       </div>
     </div>

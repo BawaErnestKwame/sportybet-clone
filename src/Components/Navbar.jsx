@@ -4,7 +4,7 @@ import profile from '../assets/image.jpg'
 
 const Navbar = () => {
   return (
-    <div className='bg-red-600 w-full h-17 flex justify-between items-center px-3 py-2'>
+    <div className='bg-red-600 fixed top-0 z-50 max-w-[768px] w-full h-17 flex justify-between items-center px-3 py-2'>
       {/* logo */}
       <h1 className='text-white font-bold text-3xl'>Sporty</h1>
 

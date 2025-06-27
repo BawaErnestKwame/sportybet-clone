@@ -74,7 +74,7 @@ const GamePlay = () => {
 
       {/* Main Section */}
       <div className="px-4 py-4 bg-green-50 min-h-screen w-full">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 mb-4 w-full">
+        <div className="flex items-center justify-between gap-2 mb-4 w-full">
           {/* Search Input */}
           <div className={`flex items-center bg-white border border-gray-200 rounded-xl py-1 px-2 shadow-sm transition-all duration-300 ${full ? 'w-full' : 'w-[55%]'}`}>
             <SearchIcon className="text-gray-500" fontSize="inherit" />

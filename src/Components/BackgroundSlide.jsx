@@ -22,7 +22,7 @@ const BackgroundSlide = () => {
 
   return (
     <>
-    <div className="overflow-hidden w-full h-32 relative">
+    <div className="overflow-hidden w-full h-32 relative mt-16">
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
