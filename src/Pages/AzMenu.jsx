@@ -65,6 +65,7 @@ const AzMenu = () => {
           </span>
         </Link>
 
+      <Link to='/azmenu/live'>
         <span
           onClick={() => setActiveTab('live')}
           className={`cursor-pointer tracking-wide ${
@@ -73,6 +74,7 @@ const AzMenu = () => {
         >
           Live (122)
         </span>
+      </Link>
 
         <span
           onClick={() => setActiveTab('promotion')}

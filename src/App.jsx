@@ -35,6 +35,7 @@ import HowtoWithdraw from './Withdraw/HowtoWithdraw';
 
 // AzMenu Subpages
 import AzSports from './Pages/AZmenuItems/AzPagerout/AzSports';
+import Live from './Pages/AZmenuItems/AzPagerout/Live';
 
 const App = () => {
   const location = useLocation();
@@ -91,6 +92,7 @@ const App = () => {
             <Route path="/azmenu" element={<motion.div {...pageTransition}><AzMenu /></motion.div>}>
               <Route index element={<Navigate to="azsports" replace />} />
                 <Route path="/azmenu/azsports" element={<motion.div {...pageTransition}><AzSports /></motion.div>} />
+                <Route path="/azmenu/live" element={<motion.div {...pageTransition}><Live /></motion.div>} />
             </Route>
           
 
