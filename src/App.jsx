@@ -33,11 +33,14 @@ import WithdrawMobileMoney from './Withdraw/WithdrawMobileMoney';
 import Bank from './Withdraw/Bank';
 import HowtoWithdraw from './Withdraw/HowtoWithdraw';
 
+// AzMenu Subpages
+import AzSports from './Pages/AZmenuItems/AzPagerout/AzSports';
+
 const App = () => {
   const location = useLocation();
   const path = location.pathname.toLowerCase();
 
-  // Only show Navbar and BackgroundSlide on these routes
+  // Only show Navbar and BackgroundSlide on specific routes
   const showHeader =
     path !== '/gameplay' && (
       path === '/' ||
@@ -47,31 +50,32 @@ const App = () => {
       path.startsWith('/virtuals')
     );
 
-  // Hide bottom nav on deposit or help-related pages
+  // Hide BottomNavbar on these routes
   const hideBottomNav =
-      path.startsWith('/deposit') ||
-  path.startsWith('/withdraw') ||
-  path === '/howtodeposit';
+    path.startsWith('/deposit') ||
+    path.startsWith('/withdraw') ||
+    path === '/howtodeposit';
 
   // Page animation config
   const pageTransition = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: -20 },
-    transition: { duration: 0.25 }
+    transition: { duration: 0.25 },
   };
 
   return (
     <div className="flex justify-center items-center h-auto bg-gray-600">
       <div className="max-w-[768px] w-full h-auto bg-white overflow-hidden">
 
-        {/* Header shown only when applicable */}
+        {/* Conditional Header */}
         {showHeader && <Navbar />}
         {showHeader && <BackgroundSlide />}
 
-        {/* Page Routes */}
+        {/* Routes */}
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
+            {/* Homepage Tabs */}
             <Route path="/" element={<Activities />}>
               <Route index element={<Navigate to="matches" replace />} />
               <Route path="matches" element={<motion.div {...pageTransition}><Matches /></motion.div>} />
@@ -80,13 +84,23 @@ const App = () => {
               <Route path="virtuals" element={<motion.div {...pageTransition}><Virtual /></motion.div>} />
             </Route>
 
+            {/* Gameplay */}
             <Route path="/gameplay" element={<motion.div {...pageTransition}><GamePlay /></motion.div>} />
-            <Route path="/azmenu" element={<motion.div {...pageTransition}><AzMenu /></motion.div>} />
+
+            {/* AzMenu and Subpages */}
+            <Route path="/azmenu" element={<motion.div {...pageTransition}><AzMenu /></motion.div>}>
+              <Route index element={<Navigate to="azsports" replace />} />
+                <Route path="/azmenu/azsports" element={<motion.div {...pageTransition}><AzSports /></motion.div>} />
+            </Route>
+          
+
+            {/* Other Pages */}
             <Route path="/open-bet" element={<motion.div {...pageTransition}><OpenBet /></motion.div>} />
             <Route path="/me" element={<motion.div {...pageTransition}><Me /></motion.div>} />
             <Route path="/profile" element={<motion.div {...pageTransition}><Profile /></motion.div>} />
             <Route path="/howtodeposit" element={<motion.div {...pageTransition}><HowToDeposit /></motion.div>} />
 
+            {/* Deposit Routes */}
             <Route path="/deposit" element={<motion.div {...pageTransition}><Deposit /></motion.div>}>
               <Route index element={<Navigate to="mobile-money" replace />} />
               <Route path="mobile-money" element={<motion.div {...pageTransition}><MobileMoney /></motion.div>} />
@@ -94,16 +108,17 @@ const App = () => {
               <Route path="card" element={<motion.div {...pageTransition}><Card /></motion.div>} />
             </Route>
 
-            <Route path='/withdraw' element={<Withdraw/>}>
-              <Route index element={<Navigate to='withdrawmobilemoney' replace/> }/>
-              <Route path='withdrawmobilemoney' element={<WithdrawMobileMoney/>}/>
-              <Route path='bank' element={<Bank/>}/>
-              <Route path='howtowithdraw' element={<HowtoWithdraw/>}/>
+            {/* Withdraw Routes */}
+            <Route path="/withdraw" element={<Withdraw />}>
+              <Route index element={<Navigate to="withdrawmobilemoney" replace />} />
+              <Route path="withdrawmobilemoney" element={<WithdrawMobileMoney />} />
+              <Route path="bank" element={<Bank />} />
+              <Route path="howtowithdraw" element={<HowtoWithdraw />} />
             </Route>
           </Routes>
         </AnimatePresence>
 
-        {/* Bottom navbar */}
+        {/* Bottom Navigation */}
         {!hideBottomNav && <BottomNavbar />}
       </div>
     </div>

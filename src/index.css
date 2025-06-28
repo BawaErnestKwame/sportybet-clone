@@ -35,3 +35,25 @@ html, body, #root {
               border-right: 6px solid transparent;
               border-top: 6px solid #16a34a; /* green-600 */
 }
+
+/* hide scrollbar width but keep scroll behavior */
+/* Chrome, Safari, Edge (WebKit browsers) */
+.hide-scrollbar::-webkit-scrollbar {
+  width: 2px;
+  height: 2px; /* If you also want horizontal scrolling */
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent; /* or set a color if you want a visible thumb */
+}
+
+/* Firefox */
+.hide-scrollbar {
+  scrollbar-width: thin; /* makes it 2px or close */
+  scrollbar-color: transparent transparent; /* thumb and track */
+}
+
+/* IE 10+ */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* completely hides scrollbar */
+}
