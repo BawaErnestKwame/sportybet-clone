@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import FooterSlide from '../HompageActivities/FooterSlide';
 
 const sports = [
   'Football', 'Basketball', 'Tennis', 'Table Tennis', 'Volleyball',
@@ -25,7 +26,8 @@ const Sports = () => {
   const [activeBet, setActiveBet] = useState('1X2');
 
   return (
-    <div className="w-full min-h-screen bg-gray-50">
+    <>
+    <div className="w-full h-auto bg-gray-50">
       {/* Sticky Sports Header */}
       <div className="flex items-center sticky top-0 z-20 bg-gray-50 px-4 py-3">
         <h2 className="text-gray-700 text-xl font-bold mr-4 border-r pr-3 border-gray-200">SPORTS</h2>
@@ -118,6 +120,9 @@ const Sports = () => {
         </div>
       </div>
     </div>
+
+      <FooterSlide/>
+      </>    
   );
 };
 

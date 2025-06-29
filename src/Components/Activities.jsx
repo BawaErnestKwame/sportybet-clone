@@ -8,6 +8,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import SportsVolleyballIcon from '@mui/icons-material/SportsVolleyball';
 import LiveBet from '../Components/LiveBet/LiveBet';
 
+
 const Activities = () => {
   const location = useLocation();
   const isActive = (path) => location.pathname.endsWith(path);
@@ -85,6 +86,7 @@ const Activities = () => {
 
       {/* LiveBet Component */}
       <LiveBet />
+    
     </div>
   );
 };

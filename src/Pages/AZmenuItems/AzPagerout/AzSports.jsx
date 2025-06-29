@@ -35,7 +35,7 @@ const AzSports = () => {
         </p>
 
         {/* Dummy content for scroll demo */}
-        <div className="space-y-4">
+        <div className="space-y-4 text-gray-600">
           {Array.from({ length: 50 }).map((_, i) => (
             <div key={i} className="p-4 ">
               Match {i + 1} - {selected}

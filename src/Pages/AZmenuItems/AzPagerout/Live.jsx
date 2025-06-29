@@ -38,7 +38,7 @@ const Live = () => {
           Display matches or content for <strong>{selected}</strong> here.
         </p> */}
 
-        <button className='flex text-gray-600 justify-between items-center gap-20'>
+        <button className='flex text-gray-600 justify-between items-center gap-20 '>
           <span className='flex gap-2 items-center'>
           <span>54</span>
           <p>{selected}</p>
@@ -49,7 +49,7 @@ const Live = () => {
         </button>
 
         {/* Dummy content */}
-        <div className="space-y-4">
+        <div className="space-y-4 text-gray-600">
           {Array.from({ length: 20 }).map((_, i) => (
             <div key={i} className="p-4">
               Match {i + 1} - {selected}
